@@ -16,7 +16,7 @@ namespace ApiValidacao.Controllers
         [AllowAnonymous]
         [HttpPost]
         public object Post(
-            [FromBody]Usuario usuario,
+            [FromBody]Usuarios usuario,
             [FromServices]UserManager<ApplicationUser> userManager,
             [FromServices]SignInManager<ApplicationUser> signInManager,
             [FromServices]SigningConfigurations signingConfigurations,
@@ -33,7 +33,7 @@ namespace ApiValidacao.Controllers
                 {
                     // Efetua o login com base no Id do usuário e sua senha
                     var resultadoLogin = signInManager
-                        .CheckPasswordSignInAsync(userIdentity, usuario.Senha, false)
+                        .CheckPasswordSignInAsync(userIdentity, usuario.AppKey, false)
                         .Result;
                     if (resultadoLogin.Succeeded)
                     {

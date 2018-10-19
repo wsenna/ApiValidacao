@@ -1,10 +1,10 @@
 ﻿namespace ApiValidacao
 {
-    public class Usuario
+    public class Usuarios
     {
         public string Id { get; set; }
         public string NomeRazao { get; set; }
-        public string Senha { get; set; }        
+        public string AppKey { get; set; }        
     }
 
     public static class Roles

@@ -5,14 +5,24 @@ using ApiValidacao.Model;
 namespace ApiValidacao.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {      
-        public DbSet<Usuario> Usuario { get; set; }        
+    {
+        //public DbSet<Usuarios> Usuarios { get; set; }        
 
-        protected override void OnModelCreating(ModelBuilder mb)
+        //protected override void OnModelCreating(ModelBuilder mb)
+        //{
+        //    mb.Entity<Usuarios>().ToTable("Usuario");
+
+        //    base.OnModelCreating(mb);            
+        //}
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
         {
-            mb.Entity<Usuario>().ToTable("Usuario");
 
-            base.OnModelCreating(mb);           
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
         }
     }
 }
